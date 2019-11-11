@@ -1,11 +1,14 @@
 {
-  "name": "redux-persist",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "name": "@kompot/redux-persist",
   "version": "6.0.0",
   "description": "persist and rehydrate redux stores",
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "./types/index.d.ts",
-  "repository": "rt2zz/redux-persist",
+  "repository": "git://github.com/kompot/redux-persist.git",
   "files": [
     "es",
     "src",
