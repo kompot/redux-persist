@@ -3,7 +3,7 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "name": "@kompot/redux-persist",
-  "version": "6.0.0",
+  "version": "6.0.3",
   "description": "persist and rehydrate redux stores",
   "main": "lib/index.js",
   "module": "es/index.js",

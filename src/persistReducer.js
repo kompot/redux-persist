@@ -73,9 +73,7 @@ export default function persistReducer<State: Object, Action: Object>(
         // dev warning if we are already sealed
         if (process.env.NODE_ENV !== 'production' && _sealed)
           console.error(
-            `redux-persist: rehydrate for "${
-              config.key
-            }" called after timeout.`,
+            `redux-persist: rehydrate for "${config.key}" called after timeout.`,
             payload,
             err
           )
@@ -83,7 +81,10 @@ export default function persistReducer<State: Object, Action: Object>(
         // only rehydrate if we are not already sealed
         if (!_sealed) {
           action.rehydrate(config.key, payload, err)
-          _sealed = true
+          // do not seal rehydrating
+          // so that it's possible to rehydrate at any point
+          // e. g. when rehydrating a lazy loading module
+          // _sealed = true
         }
       }
       timeout &&
@@ -92,9 +93,7 @@ export default function persistReducer<State: Object, Action: Object>(
             _rehydrate(
               undefined,
               new Error(
-                `redux-persist: persist timed out for persist key "${
-                  config.key
-                }"`
+                `redux-persist: persist timed out for persist key "${config.key}"`
               )
             )
         }, timeout)
@@ -112,7 +111,7 @@ export default function persistReducer<State: Object, Action: Object>(
         return {
           ...baseReducer(restState, action),
           _persist,
-        };
+        }
       }
 
       if (
