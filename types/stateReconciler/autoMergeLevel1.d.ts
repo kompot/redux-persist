@@ -1,5 +1,5 @@
 declare module "redux-persist/es/stateReconciler/autoMergeLevel1" {
-  import { PersistConfig } from "redux-persist";
+  import { PersistConfig } from "@kompot/redux-persist";
 
   // tslint:disable-next-line: strict-export-declare-modifiers
   export default function autoMergeLevel1<S>(inboundState: S, originalState: S, reducedState: S, config: PersistConfig<S>): S;
